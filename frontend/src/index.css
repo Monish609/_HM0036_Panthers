@@ -1,0 +1,148 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #1A73E8;
+  color: white;
+}
+
+.navbar-brand a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+.dashboard {
+  padding: 2rem;
+}
+
+.dashboard h2 {
+  margin-bottom: 1rem;
+}
+
+.lessons {
+  padding: 2rem;
+}
+
+.lessons h2 {
+  margin-bottom: 1rem;
+}
+
+.matchmaking {
+  padding: 2rem;
+}
+
+.matchmaking h2 {
+  margin-bottom: 1rem;
+}
+
+.progress {
+  padding: 2rem;
+}
+
+.progress h2 {
+  margin-bottom: 1rem;
+}
+
+.quizzes {
+  padding: 2rem;
+}
+
+.quizzes h2 {
+  margin-bottom: 1rem;
+}
+
+.rewards {
+  padding: 2rem;
+}
+
+.rewards h2 {
+  margin-bottom: 1rem;
+}
+
+.video {
+  margin-bottom: 2rem;
+}
+
+.video-upload {
+  padding: 2rem;
+}
+
+.video-upload h2 {
+  margin-bottom: 1rem;
+}
+
+.hero-section {
+  background-image: url('path-to-your-image.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-section h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero-section p {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  padding: 15px 30px;
+  font-size: 18px;
+  color: white;
+  background-color: #1A73E8;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background-color: #1557B0;
+}
+
+.login {
+  padding: 2rem;
+}
+
+.login h2 {
+  margin-bottom: 1rem;
+}
+
+.signup {
+  padding: 2rem;
+}
+
+.signup h2 {
+  margin-bottom: 1rem;
+}
+
+.not-found {
+  padding: 2rem;
+  text-align: center;
+}
+

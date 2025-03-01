@@ -1,0 +1,113 @@
+[
+    {
+      "_id": "65d0cf0c24cf0200162cf0cf",
+      "title": "Introduction to JavaScript",
+      "questions": [
+        {
+          "question": "What is JavaScript?",
+          "options": [
+            "A programming language",
+            "A type of coffee",
+            "A web browser",
+            "A markup language"
+          ],
+          "correctAnswer": "A programming language"
+        },
+        {
+          "question": "Which keyword is used to declare a variable in JavaScript?",
+          "options": [
+            "var",
+            "let",
+            "const",
+            "All of the above"
+          ],
+          "correctAnswer": "All of the above"
+        },
+        {
+          "question": "What does DOM stand for?",
+          "options": [
+            "Document Object Model",
+            "Data Object Model",
+            "Dynamic Object Model",
+            "Document Oriented Model"
+          ],
+          "correctAnswer": "Document Object Model"
+        }
+      ],
+      "videoId": "65d0cf0c24cf0200162cf0cf"
+    },
+    {
+      "_id": "65d0cf0c24cf0200162cf0d0",
+      "title": "Advanced JavaScript Concepts",
+      "questions": [
+        {
+          "question": "What is a closure in JavaScript?",
+          "options": [
+            "A function that has access to its outer function's scope",
+            "A way to close a browser tab",
+            "A type of loop",
+            "A method to hide variables"
+          ],
+          "correctAnswer": "A function that has access to its outer function's scope"
+        },
+        {
+          "question": "What is the output of `typeof null` in JavaScript?",
+          "options": [
+            "object",
+            "null",
+            "undefined",
+            "string"
+          ],
+          "correctAnswer": "object"
+        },
+        {
+          "question": "Which method is used to add an element to the end of an array?",
+          "options": [
+            "push()",
+            "pop()",
+            "shift()",
+            "unshift()"
+          ],
+          "correctAnswer": "push()"
+        }
+      ],
+      "videoId": "65d0cf0c24cf0200162cf0d0"
+    },
+    {
+      "_id": "65d0cf0c24cf0200162cf0d1",
+      "title": "React Basics",
+      "questions": [
+        {
+          "question": "What is React?",
+          "options": [
+            "A JavaScript library for building user interfaces",
+            "A programming language",
+            "A database",
+            "A CSS framework"
+          ],
+          "correctAnswer": "A JavaScript library for building user interfaces"
+        },
+        {
+          "question": "Which hook is used to manage state in a functional component?",
+          "options": [
+            "useState",
+            "useEffect",
+            "useContext",
+            "useReducer"
+          ],
+          "correctAnswer": "useState"
+        },
+        {
+          "question": "What is JSX?",
+          "options": [
+            "A syntax extension for JavaScript",
+            "A type of CSS",
+            "A database query language",
+            "A testing framework"
+          ],
+          "correctAnswer": "A syntax extension for JavaScript"
+        }
+      ],
+      "videoId": "65d0cf0c24cf0200162cf0d1"
+    }
+  ]
