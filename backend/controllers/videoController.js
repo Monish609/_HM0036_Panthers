@@ -1,22 +1,29 @@
 import Video from '../models/Video.js';
 
+// Upload Video
 export const uploadVideo = async (req, res) => {
-  const { title, description, category, duration } = req.body;
-  const videoUrl = `/uploads/${req.file.filename}`; // Assuming Multer handles file uploads
-  const createdBy = req.user._id; // User ID from the authenticated request
-
   try {
-    const newVideo = new Video({
+    const { title, description, category, duration, createdBy, videoUrl } = req.body;
+
+    // Check if either a file or videoUrl is provided
+    if (!req.file && !videoUrl) {
+      return res.status(400).json({ message: 'Either a video file or video URL is required' });
+    }
+
+    // Use the file path if a file is uploaded, otherwise use the provided videoUrl
+    const finalVideoUrl = req.file ? `/uploads/videos/${req.file.filename}` : videoUrl;
+
+    // Create a new video document
+    const video = await Video.create({
       title,
       description,
       category,
-      videoUrl,
+      videoUrl: finalVideoUrl, // Use the file path or provided URL
       duration,
       createdBy,
     });
 
-    await newVideo.save();
-    res.status(201).json({ message: 'Video uploaded successfully', video: newVideo });
+    res.status(201).json({ message: 'Video uploaded successfully', video });
   } catch (error) {
     res.status(500).json({ message: 'Error uploading video', error: error.message });
   }

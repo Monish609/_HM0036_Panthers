@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import cookieParser from 'cookie-parser';
 import userRoutes from './routes/userRoutes.js';
 import videoRoutes from './routes/videoRoutes.js';
 import quizRoutes from './routes/quizRoutes.js';
@@ -10,7 +11,9 @@ import errorHandler from './utils/errorHandler.js';
 import progressRoutes from './routes/progressRoutes.js';
 import rewardRoutes from './routes/rewardRoutes.js';
 import matchmakingRoutes from './routes/matchmakingRoutes.js';
+import adminRoutes from './routes/adminRoutes.js';
 import path from 'path';
+
 import { fileURLToPath } from 'url';
 
 dotenv.config();
@@ -22,8 +25,16 @@ const PORT = process.env.PORT || 5000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+
+const corsOptions = {
+  origin: 'http://localhost/5173', // Replace with your frontend domain
+  credentials: true, // Allow cookies to be sent
+};
+
+app.use(cors(corsOptions));
+
 // Middleware
-app.use(cors());
+app.use(cookieParser()); 
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve static files
 
@@ -42,6 +53,7 @@ app.use('/api/mentors', mentorRoutes);
 app.use('/api/progress', progressRoutes);
 app.use('/api/rewards', rewardRoutes);
 app.use('/api/matchmaking', matchmakingRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Error Handling Middleware
 app.use(errorHandler);

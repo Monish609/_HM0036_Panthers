@@ -1,36 +1,33 @@
 import multer from 'multer';
 import path from 'path';
 
-// Set storage engine
+// Configure storage for uploaded files
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, process.env.UPLOADS_DIR);
+    cb(null, 'uploads/videos/'); // Save videos in the 'uploads/videos' directory
   },
   filename: (req, file, cb) => {
-    cb(null, `${Date.now()}-${file.originalname}`);
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+    const ext = path.extname(file.originalname);
+    cb(null, file.fieldname + '-' + uniqueSuffix + ext); // Rename file to avoid conflicts
   },
 });
 
-// Check file type
-const checkFileType = (file, cb) => {
-  const filetypes = /mp4|mov|avi|mkv/;
-  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-  const mimetype = filetypes.test(file.mimetype);
-
-  if (extname && mimetype) {
-    return cb(null, true);
+// File filter to allow only video files
+const fileFilter = (req, file, cb) => {
+  const allowedTypes = ['video/mp4', 'video/mpeg', 'video/quicktime'];
+  if (allowedTypes.includes(file.mimetype)) {
+    cb(null, true); // Accept the file
   } else {
-    cb('Error: Videos only!');
+    cb(new Error('Invalid file type. Only video files are allowed.'), false); // Reject the file
   }
 };
 
-// Initialize upload
+// Initialize multer with the configured storage and file filter
 const upload = multer({
   storage: storage,
-  limits: { fileSize: 100 * 1024 * 1024 }, // 100MB limit
-  fileFilter: (req, file, cb) => {
-    checkFileType(file, cb);
-  },
+  fileFilter: fileFilter,
+  limits: { fileSize: 100 * 1024 * 1024 }, // Limit file size to 100MB
 });
 
 export default upload;

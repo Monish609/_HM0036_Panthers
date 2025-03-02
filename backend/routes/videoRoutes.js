@@ -1,6 +1,6 @@
 import express from 'express';
 import { uploadVideo, getVideos } from '../controllers/videoController.js';
-import upload from '../utils/upload.js';
+import upload from '../utils/upload.js'; // Ensure this is configured for video uploads
 
 const router = express.Router();
 
